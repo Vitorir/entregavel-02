@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algo Runner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="../app.html">
+      <span>
+        <span style="color: green;">Algo</span>
+        <span style="color: white;">Runner</span>
+      </span>
+    </a>
+
+
+  </header>
+
+  <main>
+    <h2>Bem-vindo ao AlgoRunner</h2>
+    <p>Esta aplicação executa algoritmos e fornece uma visualização</p>
+
+    <form>
+      <label for="input">Digite o nome do algoritmo:</label>
+      <input type="text" id="input" placeholder="Digite o nome do algoritmo">
+      <button type="submit" id="submit-btn" onclick="rodar(event)">Enviar</button>
+    </form>
+
+    <div id="output" class="output"></div>
+
+    <ul>
+      <li id="contagem-item"><a href="paginas/contagem.html">Contagem</a></li>
+      <li id="fib-item"><button id="fib">Fibonacci</button></li>
+      <li id="mdc-item"><button id="MDC">MDC</button></li>
+      <li id="primo-item"><button id="primo">Numero Primo</button></li>
+      <li id="somatorio-item"><button id="somatorio">Somatorio</button></li>
+      <li id="quicksort-item"><a href="paginas/Quicksort.html">Quicksort</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    <p class="text-center">&copy; 2023 AlgoRunner. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function rodar(event) {
+      event.preventDefault();
+      var input = document.getElementById('input').value;
+      var output = document.getElementById('output');
+
+      // Oculta todos os itens da lista
+      var listItems = document.querySelectorAll('li');
+      for (var i = 0; i < listItems.length; i++) {
+        listItems[i].classList.add('hidden');
+      }
+
+      var foundItems = []; // Array para armazenar os itens encontrados
+
+      // Percorre todos os itens da lista
+      for (var i = 0; i < listItems.length; i++) {
+        var listItem = listItems[i];
+        var itemName = listItem.textContent.toLowerCase(); // Obtém o nome do item em letras minúsculas
+
+        if (itemName.includes(input.toLowerCase())) {
+          // Se o nome do item contiver a sequência de caracteres digitada
+          listItem.classList.remove('hidden');
+          foundItems.push(listItem);
+        }
+      }
+
+      if (foundItems.length > 0) {
+        // Destaca o primeiro item encontrado
+        foundItems[0].classList.add('highlight');
+        output.textContent = "Você digitou: " + input;
+      } else {
+        output.textContent = "Nenhum resultado encontrado para: " + input;
+      }
+    }
+  </script>
+</body>
+
+</html>
