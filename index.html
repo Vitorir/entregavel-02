@@ -1,13 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Algo Runner - Menu de Navegação</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            background-color: black;
+            color: white;
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 60px; /* Espaçamento superior para evitar sobreposição ao header */
+        }
+
+        .dropdown-button {
+            display: block;
+            background-color: black;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-button:hover {
+            background-color: #333;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: #222;
+            padding: 10px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #444;
+        }
+
+        .active {
+            background-color: #444 !important;
+        }
+
+        .top-buttons {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 10px;
+        }
+
+        .top-buttons button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .top-buttons button.active {
+            background-color: #444;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <a href="../app.html">
+            <span>
+                <span style="color: green;">Algo</span>
+                <span style="color: white;">Runner</span>
+            </span>
+        </a>
+    </header>
+
+    <main>
+        <h2>Bem-vindo ao <span style="color: green;">Algo</span><span style="color: white;">Runner</span></h2>
+        <p class="description">Esta aplicação executa algoritmos e fornece uma visualização</p>
+
+        <div class="sidebar">
+            <div class="dropdown">
+                <button class="dropdown-button">Algoritmos Fundamentais</button>
+                <div class="dropdown-content">
+                    <a href="#">Algoritmo 1</a>
+                    <a href="#">Algoritmo 2</a>
+                    <a href="#">Algoritmo 3</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-button">Algoritmos de Ordenação</button>
+                <div class="dropdown-content">
+                    <a href="#">Algoritmo 1</a>
+                    <a href="#">Algoritmo 2</a>
+                    <a href="#">Algoritmo 3</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-buttons">
+            <button id="javascript-button" class="active">JavaScript</button>
+            <button id="java-button">Java</button>
+        </div>
+    </main>
+
+    <footer>
+        <p class="text-center">&copy; 2023 AlgoRunner. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        var javascriptButton = document.getElementById('javascript-button');
+        var javaButton = document.getElementById('java-button');
+
+        javascriptButton.addEventListener('click', function () {
+            javascriptButton.classList.add('active');
+            javaButton.classList.remove('active');
+        });
+
+        javaButton.addEventListener('click', function () {
+            javaButton.classList.add('active');
+            javascriptButton.classList.remove('active');
+        });
+
+        // Código para exibir/desativar as dropdowns
+        var dropdowns = document.getElementsByClassName('dropdown');
+
+        for (var i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].addEventListener('click', function () {
+                this.classList.toggle('active');
+                var dropdownContent = this.querySelector('.dropdown-content');
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+    </script>
 </body>
+
 </html>

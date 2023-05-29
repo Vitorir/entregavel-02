@@ -20,7 +20,7 @@
 
 <body>
   <header>
-    <a href="../app.html">
+    <a href="app.html">
       <span>
         <span style="color: green;">Algo</span>
         <span style="color: white;">Runner</span>
@@ -31,23 +31,24 @@
   </header>
 
   <main>
-    <h2>Bem-vindo ao AlgoRunner</h2>
+    <h2>Bem-vindo ao <span style="color: green;">Algo</span><span style="color: white;">Runner</span></h2>
     <p>Esta aplicação executa algoritmos e fornece uma visualização</p>
 
     <form>
       <label for="input">Digite o nome do algoritmo:</label>
       <input type="text" id="input" placeholder="Digite o nome do algoritmo">
-      <button type="submit" id="submit-btn" onclick="rodar(event)">Enviar</button>
+      <button type="submit" id="submit-btn" onclick="rodar(event)">Pesquisar</button>
     </form>
+
 
     <div id="output" class="output"></div>
 
     <ul>
       <li id="contagem-item"><a href="paginas/contagem.html">Contagem</a></li>
-      <li id="fib-item"><button id="fib">Fibonacci</button></li>
-      <li id="mdc-item"><button id="MDC">MDC</button></li>
-      <li id="primo-item"><button id="primo">Numero Primo</button></li>
-      <li id="somatorio-item"><button id="somatorio">Somatorio</button></li>
+      <li id="fib-item"><a href="paginas/fibonacci.html">Fibonacci</a></li>
+      <li id="mdc-item"><a href="paginas/MDC.html">MDC</a></li>
+      <li id="primo-item"><a href="paginas/Numero-primo.html">Numero Primo</a></li>
+      <li id="somatorio-item"><a href="paginas/Somatorio.html">Somatorio</a></li>
       <li id="quicksort-item"><a href="paginas/Quicksort.html">Quicksort</a></li>
     </ul>
   </main>
