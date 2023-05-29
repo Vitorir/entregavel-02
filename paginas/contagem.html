@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Runner</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <a href="../app.html">
+            <span>
+                <span style="color: green;">Algo</span>
+                <span style="color: white;">Runner</span>
+            </span>
+        </a>
+    </header>
+
+    <main>
+        <h2>Bem-vindo ao <span style="color: green;">Algo</span><span style="color: white;">Runner</span></h2>
+        <p class="description">Esta aplicação executa algoritmos e fornece uma visualização</p>
+
+        <label for="numbers-input">Digite uma lista de números separados por vírgula:</label>
+        <input type="text" id="numbers-input">
+        <button onclick="contarInteiros()">Enviar</button>
+
+        <p id="output" style="color: green;"></p>
+    </main>
+
+    <footer>
+        <p class="text-center">&copy; 2023 AlgoRunner. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function contarInteiros() {
+            var input = document.getElementById('numbers-input').value;
+            var numbers = input.split(",").map(Number);
+
+            var contador = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                if (Number.isInteger(numbers[i])) {
+                    contador++;
+                }
+            }
+
+            var output = document.getElementById('output');
+            output.innerHTML = "A quantidade de números inteiros é: " + contador;
+        }
+    </script>
+</body>
+
+</html>

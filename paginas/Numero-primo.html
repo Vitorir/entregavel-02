@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Runner - Número Primo</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <a href="../app.html">
+            <span>
+                <span style="color: green;">Algo</span>
+                <span style="color: white;">Runner</span>
+            </span>
+        </a>
+    </header>
+
+    <main>
+        <h2>Bem-vindo ao <span style="color: green;">Algo</span><span style="color: white;">Runner</span></h2>
+        <p class="description">Esta aplicação executa algoritmos e fornece uma visualização</p>
+
+        <label for="number-input">Digite um número: </label>
+        <input type="text" id="number-input">
+
+        <button onclick="checkPrime()">Verificar Primalidade</button>
+
+        <p id="output" style="color: green;"></p>
+    </main>
+
+    <footer>
+        <p class="text-center">&copy; 2023 AlgoRunner. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function checkPrime() {
+            var number = parseInt(document.getElementById('number-input').value);
+
+            var isPrime = isNumberPrime(number);
+
+            var output = document.getElementById('output');
+            if (isPrime) {
+                output.innerHTML = number + " é um número primo.";
+            } else {
+                output.innerHTML = number + " não é um número primo.";
+            }
+        }
+
+        function isNumberPrime(number) {
+            if (number <= 1) {
+                return false;
+            }
+
+            for (var i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
